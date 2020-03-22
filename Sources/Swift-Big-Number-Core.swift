@@ -1927,7 +1927,7 @@ fileprivate extension Array where Element == Limb
 //
 //
 //
-internal class BIntMath
+public class BIntMath
 {
 	/// Returns true iff (2 ** exp) - 1 is a mersenne prime.
 	static func isMersenne(_ exp: Int) -> Bool
@@ -2063,7 +2063,7 @@ internal class BIntMath
 		return BInt(n).factorial() / (BInt(k).factorial() * BInt(n - k).factorial())
 	}
 
-	static func randomBInt(bits n: Int) -> BInt
+	public static func randomBInt(bits n: Int) -> BInt
 	{
 		let limbs = n >> 6
 		let singleBits = n % 64
@@ -2127,7 +2127,7 @@ internal class BIntMath
 	///   - p: power
 	///   - m: modulus
 	/// - Returns: pow(b, p) % m
-	static func mod_exp(_ b: BInt, _ p: BInt, _ m: BInt) -> BInt {
+	public static func mod_exp(_ b: BInt, _ p: BInt, _ m: BInt) -> BInt {
 		precondition(m != 0, "modulus needs to be non-zero")
 		precondition(p >= 0, "exponent needs to be non-negative")
 		var base = b % m
